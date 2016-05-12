@@ -8,14 +8,17 @@ export default Ember.Route.extend({
     }
   },
   model() {
-    let returnObj = Ember.RSVP.hash({
-      user: {},
-      sodaBrands: this.store.findAll('soda-brand')
-    });
     let sessionUserId = this.get('session.data.authenticated.userId');
     if (sessionUserId) {
-      returnObj.user = this.store.find('user', sessionUserId);
-    } 
-    return returnObj;
+      return Ember.RSVP.hash({
+        user: this.store.find('user', sessionUserId),
+        sodaBrands: this.store.findAll('soda-brand')
+      });
+    }  else {
+      return Ember.RSVP.hash({
+        user: {},
+        sodaBrands: this.store.findAll('soda-brand')
+      });
+    }
   }
 });
