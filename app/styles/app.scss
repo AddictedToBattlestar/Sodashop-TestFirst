@@ -5,7 +5,8 @@ $primary: #2196f3;
 $warn: #f44336;
 
 .header {
-  height: 2.5em;
+  top: 0em;
+  height: 12em;
   .title {
     margin: .5em;
     cursor:pointer;
@@ -15,6 +16,52 @@ $warn: #f44336;
   .login, .logout {
     float: right;
     margin-top: -3.1em;
+  }
+  .vendingMachinePanel {
+    display: flex;
+    flex-direction: row;
+    #vendingMachineDisplay,#coinSlot,#coins {
+      border-color: black;
+      border-style: solid;
+      border-top-width: .1em;
+      border-bottom-width: .1em;
+      border-left-width: 0em;
+      border-right-width: 0em;
+    }
+    #vendingMachineDisplay,#coinSlot {
+      background-color: black;
+      padding-top: 0.2em;
+    }
+    #vendingMachineDisplay {
+      h4 {
+        padding-left: .8em;
+        width: 12em;
+        color: white;
+      }
+    }
+    #coinSlot{
+      img {
+        margin-top: .3em;
+        margin-left: .3em;
+        margin-right: .5em;
+        width: 3.2em;
+        height: 3.2em;
+      }
+    }
+    #coins {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      button {
+        margin: 4px 6px;
+        .coinImage {
+          margin-top: .7em;
+          width: 2.5em;
+          height: 2.5em;
+        }
+      }
+    }
   }
 }
 
@@ -26,52 +73,7 @@ $warn: #f44336;
   }
 }
 
-.vendingMachinePanel {
-  display: flex;
-  flex-direction: row;
-  #vendingMachineDisplay,#coinSlot,#coins {
-    border-color: black;
-    border-style: solid;
-    border-top-width: .1em;
-    border-bottom-width: .1em;
-    border-left-width: 0em;
-    border-right-width: 0em;
-  }
-  #vendingMachineDisplay,#coinSlot {
-    background-color: black;
-    padding-top: 0.2em;
-  }
-  #vendingMachineDisplay {
-    h4 {
-      padding-left: .8em;
-      width: 12em;
-      color: white;
-    }
-  }
-  #coinSlot{
-    img {
-      margin-top: .3em;
-      margin-left: .3em;
-      margin-right: .5em;
-      width: 3.2em;
-      height: 3.2em;
-    }
-  }
-  #coins {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    button {
-      margin: 4px 6px;
-      .coinImage {
-        margin-top: .7em;
-        width: 2.5em;
-        height: 2.5em;
-      }
-    }
-  }
-}
+
 
 .ember-notify {
   border-radius: .4em;
