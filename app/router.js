@@ -7,22 +7,17 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('sodaBrands', {
-    path: '/'
+  this.route('soda-brand', {
+    path: '/:soda-brand_id'
   }, function() {
-    this.route('sodaBrand', {
-      path: '/:soda-brand_id'
-    }, function() {
-      this.route('sodas', function() {
-        this.route('create');
-      });
-      this.route('soda', {
-        path: '/soda/:soda_id'
-      });
+    this.route('sodas', function() {
+      this.route('create');
     });
-    this.route('create');
+    this.route('soda', {
+      path: '/soda/:soda_id'
+    });
   });
-  this.route('pqgeNotAvailable');
+  this.route('create');
   this.route('pageNotAvailable');
 });
 

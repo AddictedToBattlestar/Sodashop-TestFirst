@@ -5,10 +5,10 @@ export default Ember.Controller.extend({
   applicationModel: Ember.computed.reads('applicationController.model'),
   actions: {
     returnToSodaListing() {
-        this.transitionToRoute('sodaBrands.sodaBrand.sodas');
+        this.transitionToRoute('soda-brand.sodas');
       },
       beginEditSoda() {
-        this.transitionToRoute('sodaBrands.sodaBrand.soda', {
+        this.transitionToRoute('soda-brand.soda', {
           queryParams: {
             edit: true
           }

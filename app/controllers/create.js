@@ -12,12 +12,12 @@ export default Ember.Controller.extend({
         let that = this;
         sodaBrand.save().then(function(result) {
           let currentId = result.get('id');
-          that.transitionToRoute('sodaBrands.sodaBrand.sodas',
+          that.transitionToRoute('soda-brand.sodas',
             currentId);
         });
       },
       cancelCreateSodaBrand() {
-        this.transitionToRoute('sodaBrands');
+        this.transitionToRoute('');
       },
       fileLoaded(file) {
         this.set('currentFileData', file.data);

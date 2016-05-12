@@ -8,8 +8,11 @@ export default Ember.Controller.extend({
   amountInserted: 0,
   alternateMessageToDisplay: '',
   actions: {
+    transitionToSodaBrand(sodaBrand) {
+        this.transitionToRoute('soda-brand.sodas', sodaBrand.id);
+      },
     returnToHome() {
-        this.transitionToRoute('sodaBrands.sodaBrand.sodas', 1);
+        this.transitionToRoute('soda-brand.sodas', 1);
       },
       invalidateSession() {
         this.get('session').invalidate();

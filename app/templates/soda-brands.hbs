@@ -1,8 +1,0 @@
-{{soda-shop-toolbar transitionToSodaBrandController=(action "transitionToSodaBrand") sodaBrands=model}}
-{{#if applicationModel.hasManagementPrivileges}}
-  <div>
-    {{#link-to "sodaBrands.create" id="createSodaBrandLink"}}{{paper-icon "add-circle" size=1}}{{/link-to}}
-  </div>
-{{/if}}
-{{outlet}}
-{{ember-notify}}

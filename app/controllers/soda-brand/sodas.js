@@ -3,8 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   applicationController: Ember.inject.controller('application'),
   applicationModel: Ember.computed.reads('applicationController.model'),
-  sodaBrandsController: Ember.inject.controller('sodaBrands'),
-  sodaBrandController: Ember.inject.controller('sodaBrands.sodaBrand'),
   sodaBrandModel: Ember.computed.reads('sodaBrandController.model'),
   actions: {
     purchaseSoda(soda) {
@@ -64,7 +62,7 @@ export default Ember.Controller.extend({
         }
       },
       goToSoda(soda) {
-        this.transitionToRoute('sodaBrands.sodaBrand.soda', soda.id);
+        this.transitionToRoute('soda-brand.soda', soda.id);
       }
   }
 

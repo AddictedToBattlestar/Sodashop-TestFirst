@@ -1,15 +1,22 @@
 <div class="header">
   <div class="title giveMeSpaceToBreathe" {{action "returnToHome"}}>Sodashop</div>
   {{#if session.isAuthenticated}}
-  <div class="logout">
-    <span>Welcome {{model.fullName}}</span>
-    {{#paper-button id='logout' raised=true action='invalidateSession'}}Logout{{/paper-button}}
-  </div>
+    <div class="logout">
+      <span>Welcome {{model.user.fullName}}</span>
+      {{#paper-button id='logout' raised=true action='invalidateSession' }}Logout{{/paper-button}}
+    </div>
   {{else}}
-  <div class="login">
-    {{#paper-button id='login' raised=true action='login'}}Login{{/paper-button}}
-  </div>
+    <div class="login">
+      {{#paper-button id='login' raised=true action='login' }}Login{{/paper-button}}
+    </div>
+  {{/if}}
+  {{vending-machine-display amountInserted=amountInserted alternateMessageToDisplay=alternateMessageToDisplay submitTemporaryMessage=(action "displayTemporaryMessage")}} {{soda-shop-toolbar transitionToSodaBrandController=(action "transitionToSodaBrand")
+  sodaBrands=model.sodaBrands}}
+  {{#if model.user.hasManagementPrivileges}}
+    <div>
+      {{#link-to "create" id="createSodaBrandLink" }}{{paper-icon "add-circle" size=1}}{{/link-to}}
+    </div>
   {{/if}}
 </div>
-{{vending-machine-display amountInserted=amountInserted alternateMessageToDisplay=alternateMessageToDisplay submitTemporaryMessage=(action "displayTemporaryMessage")}}
 {{outlet}}
+{{ember-notify}}
