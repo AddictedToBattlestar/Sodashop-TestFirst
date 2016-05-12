@@ -8,8 +8,8 @@ export default Ember.Controller.extend({
   sodaBrandModel: Ember.computed.reads('sodaBrandController.model'),
   actions: {
     purchaseSoda(soda) {
-        let sodaBrandsController = this.get('sodaBrandsController');
-        let amountInserted = sodaBrandsController.get('amountInserted');
+        let applicationController = this.get('applicationController');
+        let amountInserted = applicationController.get('amountInserted');
         let sodaCost = soda.get('cost');
         let sodaQuantity = soda.get('quantity');
         if (sodaQuantity > 0) {
@@ -23,11 +23,11 @@ export default Ember.Controller.extend({
         }
 
         function soldOut() {
-          sodaBrandsController.send('displayTemporaryMessage', 'SOLD OUT');
+          applicationController.send('displayTemporaryMessage', 'SOLD OUT');
         }
 
         function notEnoughMoneyInserted() {
-          sodaBrandsController.send('displayTemporaryMessage', 'PRICE ' + soda.get('formattedPriceDollars'));
+          applicationController.send('displayTemporaryMessage', 'PRICE ' + soda.get('formattedPriceDollars'));
         }
 
         function dispenseSoda() {
@@ -38,18 +38,18 @@ export default Ember.Controller.extend({
           if (amountRemaining !== 0) {
             generateReturnChangeNotification(amountRemaining);
           }
-          sodaBrandsController.set('amountInserted', 0);
+          applicationController.set('amountInserted', 0);
         }
 
         function generateReturnChangeNotification(amountRemaining) {
           let message = generateCustomMessage('/assets/coin.png', '$' + parseFloat(amountRemaining, 10).toFixed(2) +
             ' change');
-          sodaBrandsController.send('generateNotification', 'raw', message);
+          applicationController.send('generateNotification', 'raw', message);
         }
 
         function generateProductDispenseNotification(productImage, productName) {
           let message = generateCustomMessage(productImage, productName + ' dispensed.  Thank you!');
-          sodaBrandsController.send('generateNotification', 'raw', message);
+          applicationController.send('generateNotification', 'raw', message);
         }
 
         function generateCustomMessage(image, message) {

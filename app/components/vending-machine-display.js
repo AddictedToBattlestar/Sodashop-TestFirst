@@ -25,7 +25,7 @@ export default Ember.Component.extend({
           amount = 0.05;
           break;
         case 'penny':
-          this.sendAction('displayTemporaryMessage', 'INVALID COIN');
+          this.sendAction('submitTemporaryMessage', 'INVALID COIN');
           return;
         default:
       }
