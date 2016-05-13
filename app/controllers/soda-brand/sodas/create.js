@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  sodaBrandController: Ember.inject.controller('sodaBrands.sodaBrand'),
+  sodaBrandController: Ember.inject.controller('sodaBrand'),
   sodaBrandModel: Ember.computed.reads('sodaBrandController.model'),
   currentFileData: undefined,
   actions: {

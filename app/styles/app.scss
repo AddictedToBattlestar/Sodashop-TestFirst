@@ -7,6 +7,9 @@ $warn: #f44336;
 .header {
   top: 0em;
   height: 12em;
+  z-index: 200;
+  background-color: white;
+  position: fixed;
   .title {
     margin: .5em;
     cursor:pointer;
@@ -65,6 +68,14 @@ $warn: #f44336;
   }
 }
 
+#sodaBrandImage {
+  margin-top: 14em;
+}
+
+.loginForm {
+  margin-top: 13em;
+}
+
 #loginErrorMessage {
   margin-top: 1em;
   color: $warn;
@@ -72,8 +83,6 @@ $warn: #f44336;
     font-weight: bold;
   }
 }
-
-
 
 .ember-notify {
   border-radius: .4em;
@@ -96,6 +105,7 @@ $warn: #f44336;
 }
 
 .sodaListingHeader {
+  margin-top: 0em;
   margin-bottom: 0em;
 }
 

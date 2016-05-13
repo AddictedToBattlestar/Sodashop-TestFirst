@@ -63,7 +63,7 @@ test('it saves a soda brand with the proper information', function(assert) {
     'the soda brand was saved to the store');
 
   assert.ok(controller.transitionToRoute.calledWith(
-      'sodaBrands.sodaBrand.sodas',
+      'sodaBrand.sodas',
       4),
     'transitions back to the root of the application once the save completes'
   );

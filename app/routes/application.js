@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   session: Ember.inject.service('session'),
   beforeModel() {
     if (this.get('router.url') === '/') {
-      this.transitionTo('sodaBrands.sodaBrand.sodas', 1);
+      this.transitionTo('soda-brand.sodas', 1);
     }
   },
   model() {
