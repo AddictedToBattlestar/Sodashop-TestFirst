@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  sodaBrandController: Ember.inject.controller('sodaBrands'),
+  sodaBrandsController: Ember.inject.controller('sodaBrands'),
   sodaBrandsModel: Ember.computed.reads('sodaBrandsController.model'),
   actions: {
     returnToSodaListing() {

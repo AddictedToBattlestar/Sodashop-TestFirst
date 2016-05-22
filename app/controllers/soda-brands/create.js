@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
         });
       },
       cancelCreateSodaBrand() {
-        this.transitionToRoute('');
+        this.transitionToRoute('sodaBrands');
       },
       fileLoaded(file) {
         this.set('currentFileData', file.data);

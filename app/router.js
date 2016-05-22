@@ -7,8 +7,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('sodaBrands', { path: '/'} , function() {
-    this.route('create');
+  this.route('sodaBrands', {
+    path: '/'
+  }, function() {
     this.route('sodaBrand', {
       path: '/:soda-brand_id'
     }, function() {
@@ -19,8 +20,9 @@ Router.map(function() {
         path: '/soda/:soda_id'
       });
     });
-
+    this.route('create');
   });
+
   this.route('pageNotAvailable');
 });
 
