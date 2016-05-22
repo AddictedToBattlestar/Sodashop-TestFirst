@@ -1,7 +1,7 @@
 {{outlet}}
 <h3 class="sodaListingHeader">Soda listing for <span id="sodaBrandName">{{sodaBrandModel.sodaBrand.name}}</span>:</h3>
 {{#if applicationModel.user.hasManagementPrivileges}}
-  {{#link-to "soda-brand.sodas.create" id="createSodaLink"}}{{paper-icon "add-circle" size=1}}{{/link-to}}
+  {{#link-to "sodaBrands.sodaBrand.sodas.create" id="createSodaLink"}}{{paper-icon "add-circle" size=1}}{{/link-to}}
 {{/if}}
 {{#paper-content class="md-whiteframe-z1 list-demo"}}
   {{#paper-list}}
@@ -16,7 +16,7 @@
             <h4>{{soda.formattedPriceDollars}}</h4>
           {{/if}}
           <p>
-            {{soda.description}} {{#link-to "soda-brand.soda" soda.id}}More{{/link-to}}
+            {{soda.description}} {{#link-to "sodaBrands.sodaBrand.soda" soda.id}}More{{/link-to}}
           </p>
         </div>
       {{/paper-item}}

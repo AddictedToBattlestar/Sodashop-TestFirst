@@ -18,11 +18,11 @@ export default Ember.Controller.extend({
         let selectedSodaBrand = this.get('sodaBrandModel.sodaBrand');
         soda.set('sodaBrand', selectedSodaBrand);
         soda.save().then(function() {
-          that.transitionToRoute('soda-brand.sodas');
+          that.transitionToRoute('sodaBrands.sodaBrand.sodas');
         });
       },
       cancelCreateSoda() {
-        this.transitionToRoute('soda-brand.sodas');
+        this.transitionToRoute('sodaBrands.sodaBrand.sodas');
       },
       fileLoaded(file) {
         this.set('currentFileData', file.data);

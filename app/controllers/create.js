@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
         let that = this;
         sodaBrand.save().then(function(result) {
           let currentId = result.get('id');
-          that.transitionToRoute('soda-brand.sodas',
+          that.transitionToRoute('sodaBrands.sodaBrand.sodas',
             currentId);
         });
       },

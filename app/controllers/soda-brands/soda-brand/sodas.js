@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  applicationController: Ember.inject.controller('application'),
-  applicationModel: Ember.computed.reads('applicationController.model'),
+  sodaBrandsController: Ember.inject.controller('sodaBrands'),
+  sodaBrandsModel: Ember.computed.reads('sodaBrandsController.model'),
   sodaBrandModel: Ember.computed.reads('sodaBrandController.model'),
   actions: {
     purchaseSoda(soda) {
-        let applicationController = this.get('applicationController');
+        let applicationController = this.get('sodaBrandsController');
         let amountInserted = applicationController.get('amountInserted');
         let sodaCost = soda.get('cost');
         let sodaQuantity = soda.get('quantity');
@@ -62,7 +62,7 @@ export default Ember.Controller.extend({
         }
       },
       goToSoda(soda) {
-        this.transitionToRoute('soda-brand.soda', soda.id);
+        this.transitionToRoute('sodaBrands.sodaBrand.soda', soda.id);
       }
   }
 

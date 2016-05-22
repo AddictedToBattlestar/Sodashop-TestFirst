@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
-  applicationController: Ember.inject.controller('application'),
+  sodaBrandsController: Ember.inject.controller('sodaBrands'),
   actions: {
     authenticate() {
       let {
@@ -19,8 +19,8 @@ export default Ember.Controller.extend({
         that.set('password', '');
         let sessionUserId = that.get('session.data.authenticated.userId');
         that.store.find('user', sessionUserId).then(function(user) {
-          that.get('applicationController').set('model', user);
-          that.transitionToRoute('soda-brand.sodas', 1);
+          that.get('sodaBrandsController').set('model', user);
+          that.transitionToRoute('sodaBrands.sodaBrand.sodas', 1);
         });
       }
 
