@@ -4,7 +4,13 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'sodashop-test-first',
     environment: environment,
-    firebase: 'https://sodashopjohnryan.firebaseio.com/',
+    firebase: {
+      apiKey: "AIzaSyAzxn5YGbEjVNwGQSNg-hrO7ReZnqXKLMs",
+      authDomain: "sodashop-nenaner-9d100.firebaseapp.com",
+      databaseURL: "https://sodashop-nenaner-9d100.firebaseio.com",
+      storageBucket: "sodashop-nenaner-9d100.appspot.com",
+      messagingSenderId: "845392190197"
+    },
     contentSecurityPolicy: {
       'img-src': "'self' data:",
       'style-src': "'self' 'unsafe-inline'",
@@ -28,7 +34,7 @@ module.exports = function(environment) {
   ENV.torii = {
     providers: {
       'google-oauth2': {
-        apiKey: "1088771086022-kptc32it6d1nnhq20675qudlj1jb7lmi.apps.googleusercontent.com",
+        apiKey: "845392190197-rv6mg868ir5lrd6juts2fet7cm4t5u49.apps.googleusercontent.com",
         redirectUri: "http://localhost:4300/oauth2callback"
       }
     }
