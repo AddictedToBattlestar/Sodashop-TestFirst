@@ -33,7 +33,6 @@ export default Ember.Controller.extend({
         that.set('errorMessage', reason.message || reason);
       }
     },
-
     authenticateGoogle() {
       this.get('session')
         .authenticate('authenticator:torii', 'google-oauth2');
