@@ -8,7 +8,7 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
 });
 
 
-// // Emberfire adapter settings
+// Emberfire adapter settings
 // import Ember from 'ember';
 // import FirebaseAdapter from 'emberfire/adapters/firebase';
 //

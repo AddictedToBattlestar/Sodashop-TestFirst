@@ -7,16 +7,15 @@ import moduleForAcceptance from
 
 moduleForAcceptance('Acceptance | soda admin', {
   beforeEach() {
-      server.loadFixtures();
-      visit('/login');
-      fillIn('#identification input', 'testAdmin');
-      fillIn('#password input', 'testPassword');
-      click('#authenticate');
-      andThen(function() {
-        visit('/1/sodas');
-      });
-    },
-    afterEach() {}
+    server.loadFixtures();
+    visit('/1/sodas');
+    andThen(function() {
+      if (($('#login').length !== 0)) {
+        click('#login');
+      }
+    });
+  },
+  afterEach() {}
 });
 
 test('when viewing soda details', function(assert) {

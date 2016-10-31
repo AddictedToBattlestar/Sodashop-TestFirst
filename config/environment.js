@@ -4,11 +4,19 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'sodashop-test-first',
     environment: environment,
-    firebase: 'https://sodashopjohnryan.firebaseio.com/',
+    firebase: {
+      apiKey: "AIzaSyAzxn5YGbEjVNwGQSNg-hrO7ReZnqXKLMs",
+      authDomain: "sodashop-nenaner-9d100.firebaseapp.com",
+      databaseURL: "https://sodashop-nenaner-9d100.firebaseio.com",
+      storageBucket: "sodashop-nenaner-9d100.appspot.com",
+      messagingSenderId: "845392190197"
+    },
     contentSecurityPolicy: {
-      'img-src': "'self' data:",
+      'img-src': "'self' 'unsafe-eval' apis.google.com",
       'style-src': "'self' 'unsafe-inline'",
-      'font-src': "'self' https://fonts.gstatic.com"
+      'font-src': "'self' https://fonts.gstatic.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
     },
     baseURL: '/',
     locationType: 'auto',
@@ -25,6 +33,14 @@ module.exports = function(environment) {
     }
   };
 
+  ENV.s3 = {
+    accessKeyId: process.env.AWS_KEY,
+    secretAccessKey: process.env.AWS_SECRET,
+    bucket: process.env.AWS_BUCKET,
+    region: process.env.AWS_REGION,
+    filePattern: "*"
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -36,12 +52,25 @@ module.exports = function(environment) {
       enabled: true
     };
     ENV.notificationCloseAfter = 2500;
+
+    ENV.torii = {
+      providers: {
+        'facebook-oauth2': {
+          apiKey: '183157865405026',
+          redirectUri: 'http://localhost:4300'
+        }
+      }
+    };
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
     ENV.locationType = 'none';
+
+    ENV['simple-auth'] = {
+      store: 'simple-auth-session-store:ephemeral'
+    };
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
@@ -59,6 +88,15 @@ module.exports = function(environment) {
       enabled: false
     };
     ENV.notificationCloseAfter = 2500;
+
+    ENV.torii = {
+      providers: {
+        'facebook-oauth2': {
+          apiKey: '183098028744343',
+          redirectUri: 'http://localhost:4300'
+        }
+      }
+    };
   }
 
   return ENV;
